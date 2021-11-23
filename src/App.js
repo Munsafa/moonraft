@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
-
+import data from "./data"
+// import axios from "axios"
+// import { useEffect, useState } from 'react';
 function App() {
+  // const [posts, setposts] = useState([])
+  // useEffect(()=>{
+  //   axios.get("https://jsonkeeper.com/b/07NH").then((res) => {
+  //     setposts(res.data);
+  //     console.table(res);
+  //   });
+  // },[])
+  console.table(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        {
+          data.map((o)=>(
+            <div className="container" key={o.id}>
+
+            <div className="inner-container">
+              <div>
+              <span><strong>ID: </strong>{o.id}</span>
+                <span><strong>Name: </strong>{o.name}</span>
+                <span><strong>Email: </strong>{o.emailId}</span>
+              </div>
+              <div>
+
+                <span><strong>Joining Date: </strong>{o.joiningDate}</span>
+                <span><strong>location: </strong>{o.location}</span>
+                <span><strong>Department: </strong>{o.department}</span>
+              </div>
+            </div>
+              <p><strong>About: </strong>{o.aboutMe}</p>
+        </div>
+          ))
+        }
+    </>
   );
 }
 
